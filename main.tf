@@ -18,8 +18,8 @@ resource "google_compute_subnetwork" "test_network" {
   region        = "us-central1"  # Should match the provider's region
 }
 
-resource "google_compute_firewall" "allow_internal" {
-  name    = "allow-internal"
+resource "google_compute_firewall" "allow_internal2" {
+  name    = "allow-internal2"
   network = "co2-vpc"
 
   allow {
