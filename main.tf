@@ -20,23 +20,7 @@ resource "google_compute_subnetwork" "test_network" {
 
 
 
-resource "google_compute_firewall" "allow_internal3" {
-  name    = "allow-internal3"
-  network = "co2-vpc"
 
-  allow {
-    protocol = "icmp"
-  }
-
-  allow {
-    protocol = "tcp"
-    ports    = ["0-65535"]
-  }
-
-  allow {
-    protocol = "udp"
-    ports    = ["0-65535"]
-  }
 
   source_ranges = ["10.0.0.0/24"]  # Should match the subnet's CIDR
 }
