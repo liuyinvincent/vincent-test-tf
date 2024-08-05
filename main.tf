@@ -18,27 +18,26 @@ resource "google_compute_subnetwork" "test_network" {
   region        = "us-central1"  # Should match the provider's region
 }
 
-# Create a firewall rule to allow internal communication
-# resource "google_compute_firewall" "allow_internal" {
-#   name    = "allow-internal"
-#   network = google_compute_network.co2_vpc.name
+resource "google_compute_firewall" "allow_internal" {
+  name    = "allow-internal"
+  network = "co2-vpc"
 
-#   allow {
-#     protocol = "icmp"
-#   }
+  allow {
+    protocol = "icmp"
+  }
 
-#   allow {
-#     protocol = "tcp"
-#     ports    = ["0-65535"]
-#   }
+  allow {
+    protocol = "tcp"
+    ports    = ["0-65535"]
+  }
 
-#   allow {
-#     protocol = "udp"
-#     ports    = ["0-65535"]
-#   }
+  allow {
+    protocol = "udp"
+    ports    = ["0-65535"]
+  }
 
-#   source_ranges = ["10.0.0.0/24"]  # Should match the subnet's CIDR
-# }
+  source_ranges = ["10.0.0.0/24"]  # Should match the subnet's CIDR
+}
 
 # Create a firewall rule to allow SSH access (for management)
 # resource "google_compute_firewall" "allow_ssh" {
