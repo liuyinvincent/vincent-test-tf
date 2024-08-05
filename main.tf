@@ -22,8 +22,7 @@ resource "google_compute_subnetwork" "test_network" {
 
 
 
-  source_ranges = ["10.0.0.0/24"]  # Should match the subnet's CIDR
-}
+
 
 # Create a firewall rule to allow SSH access (for management)
 # resource "google_compute_firewall" "allow_ssh" {
